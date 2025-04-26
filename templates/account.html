@@ -1,0 +1,42 @@
+<!-- templates/account.html -->
+{% extends "base.html" %}
+
+{% block title %}My Account | Wallpaper Site{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4 text-center">My Account</h2>
+
+    <!-- User Info Card -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Username: {{ user.name }}</h5>
+            <p class="card-text">Email: {{ user.email }}</p>
+            <p class="card-text">Password: <span class="badge bg-secondary">******</span></p>
+            <p class="card-text">Membership: 
+                <span class="badge {% if user.membership == 'Premium' %}bg-success{% else %}bg-secondary{% endif %}">
+                    {{ user.membership }}
+                </span>
+            </p>
+        </div>
+    </div>
+    
+
+    <!-- Account Options -->
+    <div class="row text-center g-3">
+        <div class="col-md-4">
+            <a href="#" class="btn btn-outline-primary w-100">Manage Profile</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ url_for('premium') }}" class="btn btn-outline-warning w-100">Upgrade to Premium</a>
+        </div>
+        <div class="col-md-4">
+            <a href="#" class="btn btn-outline-success w-100">My Downloads</a>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="#" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+{% endblock %}

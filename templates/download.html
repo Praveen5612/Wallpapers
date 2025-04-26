@@ -1,0 +1,69 @@
+<!-- templates/download.html -->
+{% extends "base.html" %}
+
+{% block title %}Download Wallpaper | Wallpaper Site{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">Download Wallpaper</h2>
+
+    <!-- Wallpaper Details Section -->
+    <div class="row">
+        <div class="col-md-6">
+            <img src="../static/images/image10.jpeg" class="img-fluid" alt="Wallpaper">
+        </div>
+        <div class="col-md-6">
+            <h4 class="mb-3">Wallpaper Title: Stunning Nature</h4>
+            <p class="mb-4">Description: A beautiful and serene nature wallpaper perfect for your desktop background. It features lush green fields, mountains, and a clear blue sky.</p>
+            <p><strong>Resolution:</strong> 1920x1080</p>
+            <p><strong>Category:</strong> Nature</p>
+            <p><strong>Tags:</strong> Nature, Landscape, HD</p>
+
+            <!-- Download Button -->
+            <a href="#" class="btn btn-primary btn-lg">Download Wallpaper</a>
+
+            <!-- If Premium, Show Premium Message -->
+            <div class="mt-4 alert alert-warning">
+                <strong>Premium Access Required!</strong> This wallpaper is available for premium users. <a href="#" class="btn btn-warning">Upgrade to Premium</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Wallpapers Section -->
+    <h3 class="text-center my-5">Related Wallpapers</h3>
+    <div class="row">
+        <!-- Related Wallpaper 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="../static/images/image15.jpeg" class="card-img-top" alt="Related Wallpaper 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Calm Lake</h5>
+                    <a href="#" class="btn btn-primary">View & Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Wallpaper 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="../static/images/image15.jpeg" class="card-img-top" alt="Related Wallpaper 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mountain Peaks</h5>
+                    <a href="#" class="btn btn-primary">View & Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Wallpaper 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="../static/images/image15.jpeg" class="card-img-top" alt="Related Wallpaper 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Desert Sunset</h5>
+                    <a href="#" class="btn btn-primary">View & Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

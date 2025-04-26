@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Home | Wallpaper Site{% endblock %}
+
+{% block content %}
+<div class="text-center my-5">
+    <h1 class="display-4">Welcome to Wallpaper World</h1>
+    <p class="lead mt-3">
+        Discover thousands of stunning wallpapers across multiple categories. 
+        Create an account to download and enjoy premium features!
+    </p>
+</div>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+    <div class="row g-3">
+        <div class="col text-center">
+            <a href="{{ url_for('login') }}" class="btn btn-outline-primary px-5">Login</a>
+        </div>
+        <div class="col text-center">
+            <a href="{{ url_for('register') }}" class="btn btn-outline-primary px-5">Register</a>
+        </div>
+    </div>
+</div>
+
+    
+    
+</div>
+
+<div class="text-center mt-5">
+    <p class="text-muted">More wallpapers and features are coming soon! Stay tuned.</p>
+</div>
+{% endblock %}

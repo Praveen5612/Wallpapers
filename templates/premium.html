@@ -1,0 +1,60 @@
+<!-- templates/premium.html -->
+{% extends "base.html" %}
+
+{% block title %}Premium Wallpapers | Wallpaper Site{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">Premium Wallpapers</h2>
+
+    <!-- Premium Wallpapers Section -->
+    <div class="row">
+        <!-- Example Premium Wallpaper 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Premium Wallpaper 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Premium Landscape</h5>
+                    <p class="card-text">Exclusive high-definition landscape wallpaper for your desktop.</p>
+                    <a href="#" class="btn btn-warning">Get Premium</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Premium Wallpaper 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Premium Wallpaper 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Premium Abstract</h5>
+                    <p class="card-text">Unlock this beautiful abstract wallpaper in high-resolution.</p>
+                    <a href="#" class="btn btn-warning">Get Premium</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Premium Wallpaper 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Premium Wallpaper 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Premium Cityscape</h5>
+                    <p class="card-text">Get access to this stunning cityscape wallpaper with a premium membership.</p>
+                    <a href="#" class="btn btn-warning">Get Premium</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Section about Premium Membership -->
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Why Go Premium?</h4>
+                <p>With a premium membership, you get access to exclusive, high-resolution wallpapers, priority support, and more!</p>
+                <a href="#" class="btn btn-success btn-lg">Become a Premium Member</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

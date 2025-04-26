@@ -1,0 +1,48 @@
+<!-- templates/categories.html -->
+{% extends "base.html" %}
+
+{% block title %}Categories | Wallpaper Site{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">Browse by Categories</h2>
+
+    <div class="row">
+        <!-- Category 1: Nature -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="../static/images/image13.jpeg" class="card-img-top" alt="Nature Category">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Nature</h5>
+                    <p>Explore the beauty of nature through breathtaking landscapes, forests, mountains, and more.</p>
+                    <a href="#" class="btn btn-primary">Explore Nature Wallpapers</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2: Abstract -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="../static/images/image16.jpeg" class="card-img-top" alt="Abstract Category">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Abstract</h5>
+                    <p>Dive into a world of abstract art and vivid colors, perfect for artistic and creative backgrounds.</p>
+                    <a href="#" class="btn btn-primary">Explore Abstract Wallpapers</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3: Technology -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="../static/images/image19.jpeg" class="card-img-top" alt="Technology Category">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Technology</h5>
+                    <p>Discover futuristic technology and digital art wallpapers, perfect for tech enthusiasts.</p>
+                    <a href="#" class="btn btn-primary">Explore Technology Wallpapers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
