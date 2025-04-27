@@ -17,27 +17,37 @@ def is_strong_password(password):
         not re.search(r'[@$!%*?&]', password)):
         return False
     return True
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load environment variables from .env file
+
+# Example of accessing an environment variable
+SECRET_KEY = os.getenv('SECRET_KEY')
+
 
 # Initialize app
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:5612@localhost/data'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+
 
 # Mail Configuration (your sending Gmail credentials)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'your-main-gmail@gmail.com'  # Your website Gmail
-app.config['MAIL_PASSWORD'] = 'your-app-password'          # App password from Gmail
-app.config['MAIL_DEFAULT_SENDER'] = 'your-main-gmail@gmail.com'
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+       # App password from Gmail
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
 
 # Initialize extensions
 db = SQLAlchemy(app)
 mail = Mail(app)
 bcrypt = Bcrypt(app)
 
-app.secret_key = '5162'
+
 
 # User Model
 class User(db.Model):
@@ -58,6 +68,19 @@ def send_email(subject, recipient, body):
     msg = Message(subject, recipients=[recipient])
     msg.body = body
     mail.send(msg)
+
+from flask_mail import Message
+from app import mail
+
+# Sending OTP
+def send_otp(recipient_email, otp):
+    msg = Message('Your OTP Code',
+                  sender='praveen.g5299@gmail.com',  # Your email
+                  recipients=[recipient_email])       # The recipient email
+    
+    msg.body = f'Your OTP code is: {otp}'
+    mail.send(msg)
+
 
 # Routes
 @app.route('/')
@@ -123,9 +146,15 @@ def reset_password():
             return redirect(url_for('reset_password'))
 
         user_email = session.get('user_email')
+        if not user_email:
+            flash('Session expired. Please try again.', 'danger')
+            return redirect(url_for('forgot_password'))
+
         user = User.query.filter_by(email=user_email).first()
         if user:
-            user.password = generate_password_hash(new_password)
+            hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+            user.password = hashed_password
+
             db.session.commit()
 
             session.pop('otp', None)
